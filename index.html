@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Vault | Jonathan Omuya Moses</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: { 
-                        vaultSlate: '#0F172A', 
-                        vaultGold: '#E2B859',
-                        vaultGlass: 'rgba(255, 255, 255, 0.03)'
+                        editorialBone: '#F9F8F4', /* Warm, world-class paper color */
+                        editorialInk: '#1A1A1A',  /* Soft black for readability */
+                        editorialSage: '#4A5D4E', /* Deep nature-inspired accent */
+                        editorialGold: '#B8965D'  /* Sophisticated muted gold */
                     },
                     fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
                 }
@@ -21,154 +22,148 @@
         }
     </script>
     <style>
-        /* WORLD-CLASS DYNAMIC BACKGROUND */
-        body {
-            background: radial-gradient(circle at top right, #1E293B, #0F172A, #020617);
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-
-        .dynamic-mesh {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .glass-nav {
-            backdrop-filter: blur(20px);
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid rgba(226, 184, 89, 0.1);
-        }
-
-        .book-canvas {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.1));
-            border: 1px solid rgba(226, 184, 89, 0.05);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .book-canvas:hover {
-            border-color: rgba(226, 184, 89, 0.4);
-            transform: scale(1.02);
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.5);
-        }
-
-        .floating-gold {
-            filter: drop-shadow(0 0 15px rgba(226, 184, 89, 0.3));
-        }
-
-        /* CUSTOM ANIMATION FOR REVEAL */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+        body { background-color: #F9F8F4; color: #1A1A1A; overflow-x: hidden; }
+        
+        /* Smooth Entrance */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .reveal { animation: fadeInUp 1s ease forwards; }
+        .reveal { animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* The Editorial Book Canvas */
+        .book-canvas {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .book-canvas:hover {
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            transform: translateY(-10px);
+        }
+
+        .category-pill {
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .category-pill:hover {
+            background: #1A1A1A;
+            color: #F9F8F4;
+        }
+
+        /* Hide scrollbar for category list */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="text-slate-200 font-sans antialiased">
-    <div class="dynamic-mesh"></div>
+<body class="font-sans antialiased">
 
-    <nav class="glass-nav sticky top-0 z-50 px-6 py-5">
+    <nav class="sticky top-0 z-50 px-6 py-6 bg-[#F9F8F4]/80 backdrop-blur-md border-b border-black/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex flex-col">
-                <span class="text-[10px] tracking-[0.5em] text-vaultGold font-bold uppercase">The Vault</span>
-                <span class="text-[8px] text-slate-500 uppercase tracking-widest mt-1">Jonathan Omuya Moses</span>
+                <span class="text-[11px] tracking-[0.3em] font-bold uppercase text-editorialInk">The Vault</span>
+                <span class="text-[9px] text-editorialSage font-medium uppercase tracking-widest mt-0.5">By Jonathan Omuya Moses</span>
             </div>
-            <div class="flex items-center space-x-6 text-[9px] uppercase tracking-[0.2em] font-bold">
-                <a href="about.html" class="hover:text-vaultGold transition-colors">Architect</a>
-                <a href="contact.html" class="px-4 py-2 bg-vaultGold/10 text-vaultGold rounded-full border border-vaultGold/20">Connect</a>
+            <div class="flex items-center space-x-8 text-[10px] uppercase tracking-widest font-semibold">
+                <a href="about.html" class="hover:text-editorialGold transition-colors">Biography</a>
+                <a href="contact.html" class="px-5 py-2.5 bg-editorialInk text-editorialBone rounded-full hover:bg-editorialSage transition-all">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="relative py-24 md:py-32 px-6 overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center reveal">
-            <h2 class="text-vaultGold text-[11px] uppercase tracking-[0.7em] mb-8 font-bold leading-none">Mental Properties • Vol. 01</h2>
-            <h1 class="font-serif text-5xl md:text-8xl font-light text-white italic leading-[1.1] mb-10">
-                Wisdom for the <br> <span class="text-vaultGold">New Frontier.</span>
+    <header class="py-24 md:py-40 px-6">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="text-editorialGold text-[10px] uppercase tracking-[0.5em] mb-6 font-bold">Mental Properties • 2026 Collection</h2>
+            <h1 class="font-serif text-5xl md:text-8xl font-medium text-editorialInk leading-[1.1] mb-12">
+                Curated Wisdom for <br> <span class="italic font-normal">the Purposeful Life.</span>
             </h1>
-            <p class="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                Refining the intersection of Spirit, Finance, and Ethics. Curated literary works designed to empower the modern pioneer.
+            <p class="text-editorialSage/80 text-sm md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Refining the intersection of Spirit, Finance, and Ethics. A world-class repository of literary works designed for the modern pioneer.
             </p>
         </div>
     </header>
 
-    <div class="flex overflow-x-auto no-scrollbar justify-start md:justify-center gap-3 px-6 pb-12 reveal" style="animation-delay: 0.2s">
-        <button class="whitespace-nowrap px-6 py-2 rounded-full bg-vaultGold text-vaultSlate text-[9px] font-bold uppercase tracking-widest">All Assets</button>
-        <button class="whitespace-nowrap px-6 py-2 rounded-full border border-white/10 hover:border-vaultGold/50 transition-all text-[9px] uppercase tracking-widest">Faith</button>
-        <button class="whitespace-nowrap px-6 py-2 rounded-full border border-white/10 hover:border-vaultGold/50 transition-all text-[9px] uppercase tracking-widest">Finance</button>
-        <button class="whitespace-nowrap px-6 py-2 rounded-full border border-white/10 hover:border-vaultGold/50 transition-all text-[9px] uppercase tracking-widest">Ethics</button>
+    <div class="flex overflow-x-auto no-scrollbar justify-start md:justify-center gap-3 px-6 pb-20 reveal" style="animation-delay: 0.2s">
+        <button class="whitespace-nowrap px-8 py-3 rounded-full bg-editorialInk text-editorialBone text-[10px] font-bold uppercase tracking-widest">Selected Works</button>
+        <button class="category-pill whitespace-nowrap px-8 py-3 rounded-full text-[10px] uppercase tracking-widest">Faith</button>
+        <button class="category-pill whitespace-nowrap px-8 py-3 rounded-full text-[10px] uppercase tracking-widest">Finance</button>
+        <button class="category-pill whitespace-nowrap px-8 py-3 rounded-full text-[10px] uppercase tracking-widest">Ethics</button>
     </div>
 
-    <main class="max-w-6xl mx-auto px-6 py-12 pb-32">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+    <main class="max-w-7xl mx-auto px-6 pb-40">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             
-            <div class="book-canvas p-8 md:p-12 rounded-3xl reveal" style="animation-delay: 0.3s">
-                <div class="relative group cursor-pointer mb-12">
-                    <div class="aspect-[3/4] bg-slate-900 rounded-xl flex items-center justify-center border border-white/5 shadow-inner">
-                        <div class="text-center p-8">
-                            <h3 class="font-serif text-5xl text-white italic floating-gold">Naira <br>& Sense</h3>
-                            <div class="mt-6 h-[1px] w-12 bg-vaultGold/30 mx-auto"></div>
-                            <span class="block mt-4 text-[9px] uppercase tracking-[0.4em] text-slate-500">Asset Ref: FIN-01</span>
-                        </div>
+            <div class="book-canvas p-10 md:p-16 rounded-[40px] reveal flex flex-col md:flex-row items-center gap-12" style="animation-delay: 0.3s">
+                <div class="w-full md:w-1/2 aspect-[3/4] bg-[#F1F0EA] rounded-2xl flex items-center justify-center shadow-sm p-8 group overflow-hidden">
+                    <div class="text-center group-hover:scale-110 transition-transform duration-700">
+                        <h3 class="font-serif text-4xl text-editorialInk italic leading-tight">Naira <br>& Sense</h3>
+                        <div class="mt-6 h-[1px] w-10 bg-editorialGold mx-auto"></div>
+                        <span class="block mt-4 text-[8px] uppercase tracking-widest text-editorialSage">Finance Pillar</span>
                     </div>
                 </div>
                 
-                <div class="space-y-6">
-                    <div class="flex justify-between items-end">
-                        <h4 class="font-serif text-3xl text-white italic">Naira and Sense</h4>
-                        <span class="text-vaultGold font-serif italic text-xl">₦5,000</span>
+                <div class="w-full md:w-1/2 space-y-8 text-center md:text-left">
+                    <div>
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-editorialGold font-bold mb-2 block">Finances & Business</span>
+                        <h4 class="font-serif text-4xl text-editorialInk font-medium italic">Naira and Sense</h4>
                     </div>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
+                    <p class="text-editorialInk/70 text-sm font-light leading-relaxed">
                         A blueprint for financial stewardship and entrepreneurial grit. Derived from the founder’s journey with Great Impact Farm Ltd.
                     </p>
-                    <div class="grid grid-cols-2 gap-3 pt-4">
-                        <a href="#" class="py-4 bg-white text-vaultSlate text-center text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-vaultGold transition-colors">Selar</a>
-                        <a href="#" class="py-4 border border-white/10 text-center text-[9px] font-black uppercase tracking-widest rounded-lg hover:border-vaultGold transition-colors">Amazon</a>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <a href="#" class="flex-1 py-4 bg-editorialInk text-editorialBone text-center text-[9px] font-bold uppercase tracking-widest rounded-xl hover:bg-editorialSage transition-all">Selar</a>
+                            <a href="#" class="flex-1 py-4 border border-editorialInk/10 text-center text-[9px] font-bold uppercase tracking-widest rounded-xl hover:border-editorialInk transition-all">Amazon</a>
+                        </div>
+                        <a href="https://wa.me/234XXXXXXXXXX" class="block w-full py-4 text-center text-[9px] font-bold uppercase tracking-widest text-editorialSage border border-editorialSage/20 rounded-xl hover:bg-editorialSage/5 transition-all italic">Direct WhatsApp Order</a>
                     </div>
-                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20to%20acquire%20Naira%20and%20Sense" class="block w-full py-4 text-center text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500 border border-white/5 rounded-lg hover:text-vaultGold transition-colors">WhatsApp Acquisition</a>
                 </div>
             </div>
 
-            <div class="book-canvas p-8 md:p-12 rounded-3xl reveal" style="animation-delay: 0.4s">
-                <div class="relative group cursor-pointer mb-12">
-                    <div class="aspect-[3/4] bg-slate-900 rounded-xl flex items-center justify-center border border-white/5 shadow-inner">
-                        <div class="text-center p-8">
-                            <h3 class="font-serif text-5xl text-white italic floating-gold">Better <br> Covenant</h3>
-                            <div class="mt-6 h-[1px] w-12 bg-vaultGold/30 mx-auto"></div>
-                            <span class="block mt-4 text-[9px] uppercase tracking-[0.4em] text-slate-500">Asset Ref: SPI-02</span>
-                        </div>
+            <div class="book-canvas p-10 md:p-16 rounded-[40px] reveal flex flex-col md:flex-row items-center gap-12" style="animation-delay: 0.4s">
+                <div class="w-full md:w-1/2 aspect-[3/4] bg-[#F1F0EA] rounded-2xl flex items-center justify-center shadow-sm p-8 group overflow-hidden">
+                    <div class="text-center group-hover:scale-110 transition-transform duration-700">
+                        <h3 class="font-serif text-4xl text-editorialInk italic leading-tight">Better <br> Covenant</h3>
+                        <div class="mt-6 h-[1px] w-10 bg-editorialGold mx-auto"></div>
+                        <span class="block mt-4 text-[8px] uppercase tracking-widest text-editorialSage">Spiritual Pillar</span>
                     </div>
                 </div>
                 
-                <div class="space-y-6">
-                    <div class="flex justify-between items-end">
-                        <h4 class="font-serif text-3xl text-white italic">Better Covenant</h4>
-                        <span class="text-vaultGold font-serif italic text-xl">₦5,000</span>
+                <div class="w-full md:w-1/2 space-y-8 text-center md:text-left">
+                    <div>
+                        <span class="text-[9px] uppercase tracking-[0.3em] text-editorialGold font-bold mb-2 block">Spiritual & Faith</span>
+                        <h4 class="font-serif text-4xl text-editorialInk font-medium italic">Better Covenant</h4>
                     </div>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
+                    <p class="text-editorialInk/70 text-sm font-light leading-relaxed">
                         Explorations of the Gospel through the lens of Spirit Word Ministry. A profound deep-dive into scriptural light.
                     </p>
-                    <div class="grid grid-cols-2 gap-3 pt-4">
-                        <a href="#" class="py-4 bg-white text-vaultSlate text-center text-[9px] font-black uppercase tracking-widest rounded-lg hover:bg-vaultGold transition-colors">Selar</a>
-                        <a href="#" class="py-4 border border-white/10 text-center text-[9px] font-black uppercase tracking-widest rounded-lg hover:border-vaultGold transition-colors">Amazon</a>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <a href="#" class="flex-1 py-4 bg-editorialInk text-editorialBone text-center text-[9px] font-bold uppercase tracking-widest rounded-xl hover:bg-editorialSage transition-all">Selar</a>
+                            <a href="#" class="flex-1 py-4 border border-editorialInk/10 text-center text-[9px] font-bold uppercase tracking-widest rounded-xl hover:border-editorialInk transition-all">Amazon</a>
+                        </div>
+                        <a href="https://wa.me/234XXXXXXXXXX" class="block w-full py-4 text-center text-[9px] font-bold uppercase tracking-widest text-editorialSage border border-editorialSage/20 rounded-xl hover:bg-editorialSage/5 transition-all italic">Direct WhatsApp Order</a>
                     </div>
-                    <a href="https://wa.me/234XXXXXXXXXX?text=I%20want%20to%20acquire%20Better%20Covenant" class="block w-full py-4 text-center text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500 border border-white/5 rounded-lg hover:text-vaultGold transition-colors">WhatsApp Acquisition</a>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="py-20 border-t border-white/5 text-center px-6">
-        <div class="max-w-xs mx-auto space-y-6">
-            <span class="text-[10px] text-vaultGold uppercase tracking-[0.8em] font-bold block mb-12">Architecture by Photon Ink AI</span>
-            <p class="text-[9px] text-slate-600 uppercase tracking-widest leading-loose">
-                Lagos • Abuja • Kogi <br>
-                © 2026 Jonathan Omuya Moses
-            </p>
+    <footer class="py-32 border-t border-black/5 bg-[#F4F3EE] px-6 text-center">
+        <div class="max-w-2xl mx-auto space-y-12">
+            <div class="flex flex-col items-center">
+                <span class="text-[12px] font-serif italic text-editorialGold mb-4">Architecture by Photon Ink AI</span>
+                <p class="text-[10px] text-editorialSage uppercase tracking-[0.4em] leading-loose">
+                    Lagos • Abuja • Kogi <br>
+                    © 2026 Jonathan Omuya Moses
+                </p>
+            </div>
+            <div class="flex justify-center gap-8 text-[9px] font-bold uppercase tracking-widest text-editorialInk/40">
+                <a href="#" class="hover:text-editorialGold">Twitter</a>
+                <a href="#" class="hover:text-editorialGold">Instagram</a>
+                <a href="#" class="hover:text-editorialGold">LinkedIn</a>
+            </div>
         </div>
     </footer>
 
