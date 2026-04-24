@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiries | Jonathan Omuya Moses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { photonNavy: '#0A192F', photonGold: '#D4AF37', photonDeep: '#060E1A' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0A192F; }
+        .input-field { background: transparent; border-bottom: 1px solid rgba(212, 175, 55, 0.2); transition: all 0.4s ease; }
+        .input-field:focus { border-bottom-color: #D4AF37; outline: none; }
+        .contact-card { background: rgba(6, 14, 26, 0.4); border: 1px solid rgba(255,255,255,0.03); }
+    </style>
+</head>
+<body class="text-white font-sans min-h-screen flex flex-col">
+
+    <nav class="p-8 flex justify-between items-center bg-photonNavy/50 backdrop-blur-md sticky top-0 z-50 border-b border-white/5">
+        <a href="index.html" class="text-[9px] uppercase tracking-[0.4em] text-slate-400 hover:text-photonGold transition-all">← Back to Library</a>
+        <span class="text-[10px] uppercase tracking-[0.6em] text-photonGold font-bold italic">Contact & Collaboration</span>
+        <a href="about.html" class="text-[9px] uppercase tracking-[0.4em] text-slate-400 hover:text-photonGold transition-all">The Architect</a>
+    </nav>
+
+    <main class="flex-grow max-w-6xl mx-auto px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        
+        <section class="space-y-12">
+            <header>
+                <h2 class="text-photonGold uppercase tracking-[0.4em] text-[10px] mb-4 font-bold">Direct Channels</h2>
+                <h1 class="font-serif text-5xl font-light italic leading-tight">Let's open a <br> dialogue.</h1>
+            </header>
+
+            <div class="space-y-8">
+                <div class="contact-card p-8 rounded-sm">
+                    <h3 class="text-[9px] uppercase tracking-widest text-slate-500 mb-2 font-bold">Strategic Inquiries</h3>
+                    <a href="mailto:jonathan@photoninkai.com" class="font-serif text-2xl text-photonGold hover:text-white transition-all underline underline-offset-8 decoration-photonGold/20">
+                        jonathan@photoninkai.com
+                    </a>
+                </div>
+
+                <div class="contact-card p-8 rounded-sm border-l-4 border-l-photonGold">
+                    <h3 class="text-[9px] uppercase tracking-widest text-slate-500 mb-2 font-bold">Direct Conversation</h3>
+                    <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="font-serif text-2xl text-white hover:text-photonGold transition-all">
+                        Connect via WhatsApp
+                    </a>
+                    <p class="text-[10px] text-slate-500 mt-4 uppercase tracking-widest leading-relaxed">
+                        Best for rapid updates on book orders or speaking availability.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-photonDeep/40 p-10 lg:p-16 rounded-sm border border-white/5">
+            <h2 class="text-[10px] uppercase tracking-[0.4em] text-photonGold font-bold mb-12">Engagement Form</h2>
+            <form action="#" class="space-y-10">
+                <div class="flex flex-col">
+                    <label class="text-[9px] uppercase tracking-widest text-slate-500 mb-2">Full Name</label>
+                    <input type="text" placeholder="Your name or organization" class="input-field py-2 text-slate-300 font-light placeholder:text-slate-800">
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-[9px] uppercase tracking-widest text-slate-500 mb-2">Inquiry Type</label>
+                    <select class="input-field py-2 text-slate-300 font-light bg-photonDeep cursor-pointer">
+                        <option value="book">Book Sales & Distribution</option>
+                        <option value="speaking">Speaking Engagements</option>
+                        <option value="ministry">Spirit Word Ministry</option>
+                        <option value="farm">Great Impact Farm Ltd</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-[9px] uppercase tracking-widest text-slate-500 mb-2">Message</label>
+                    <textarea rows="4" placeholder="How can we collaborate?" class="input-field py-2 text-slate-300 font-light resize-none placeholder:text-slate-800"></textarea>
+                </div>
+
+                <button class="w-full py-5 bg-photonGold text-photonNavy text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-white transition-all duration-500">
+                    Send Inquiry
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="p-12 text-center border-t border-white/5 bg-photonDeep">
+        <p class="text-[9px] uppercase tracking-[0.5em] text-slate-600">Lagos • Abuja • Kogi | Powered by Photon Ink AI</p>
+    </footer>
+
+</body>
+</html>
