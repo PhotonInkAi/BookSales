@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Architect | Jonathan Omuya Moses</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: { 
-                        vaultSlate: '#0F172A', 
-                        vaultGold: '#E2B859',
-                        vaultDeep: '#020617'
+                        editorialBone: '#F9F8F4', /* Premium Paper Color */
+                        editorialInk: '#1A1A1A',  /* Rich Ink Black */
+                        editorialSage: '#4A5D4E', /* Signature Accent */
+                        editorialGold: '#B8965D'  /* Muted Gold */
                     },
                     fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
                 }
@@ -21,136 +22,118 @@
         }
     </script>
     <style>
-        /* WORLD-CLASS DYNAMIC BACKGROUND */
-        body {
-            background: radial-gradient(circle at bottom left, #1E293B, #0F172A, #020617);
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-
-        .dynamic-mesh {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 184, 89, 0.05);
-            transition: all 0.5s ease;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(226, 184, 89, 0.2);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .profile-accent {
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, #E2B859, transparent);
-        }
-
-        @keyframes fadeIn {
+        body { background-color: #F9F8F4; color: #1A1A1A; }
+        
+        @keyframes revealUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .reveal { animation: fadeIn 1s ease forwards; }
+        .reveal { animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            transform: translateY(-5px);
+        }
+
+        .profile-accent {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #B8965D, transparent);
+        }
     </style>
 </head>
-<body class="text-slate-300 font-sans antialiased">
-    <div class="dynamic-mesh"></div>
+<body class="font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 px-8 py-6 backdrop-blur-md border-b border-white/5">
+    <nav class="sticky top-0 z-50 px-8 py-6 bg-[#F9F8F4]/90 backdrop-blur-md border-b border-black/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="group flex items-center space-x-3 text-[10px] uppercase tracking-[0.3em] font-bold">
-                <span class="text-vaultGold group-hover:-translate-x-1 transition-transform">←</span>
-                <span class="text-slate-500 group-hover:text-vaultGold transition-colors">Library</span>
+                <span class="text-editorialGold group-hover:-translate-x-1 transition-transform">←</span>
+                <span class="text-editorialInk/50 group-hover:text-editorialInk transition-colors">Return</span>
             </a>
-            <span class="text-[10px] uppercase tracking-[0.5em] text-vaultGold font-bold italic">The Architect</span>
+            <span class="text-[10px] uppercase tracking-[0.5em] text-editorialGold font-bold italic">The Architect</span>
             <div class="w-10"></div>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-6 py-20">
+    <main class="max-w-6xl mx-auto px-6 py-24">
         
         <header class="text-center mb-32 reveal">
-            <div class="relative inline-block mb-12">
-                <div class="w-40 h-40 rounded-full border border-vaultGold/20 p-2">
-                    <div class="w-full h-full rounded-full bg-vaultDeep flex items-center justify-center border border-vaultGold/10 shadow-2xl shadow-vaultGold/5">
-                        <span class="font-serif text-5xl text-vaultGold italic select-none">JM</span>
+            <div class="relative inline-block mb-10">
+                <div class="w-40 h-40 rounded-full border border-editorialGold/20 p-1.5">
+                    <div class="w-full h-full rounded-full bg-editorialInk flex items-center justify-center">
+                        <span class="font-serif text-5xl text-editorialBone italic select-none">JM</span>
                     </div>
                 </div>
-                <div class="absolute -bottom-2 -right-2 bg-vaultGold text-vaultSlate px-4 py-1 rounded-full text-[8px] font-black uppercase tracking-tighter">Founder</div>
             </div>
-            <h1 class="font-serif text-6xl md:text-8xl text-white italic leading-none mb-8">Jonathan <br> Omuya Moses</h1>
-            <p class="text-[10px] uppercase tracking-[0.6em] text-vaultGold font-bold">Building Frontiers in Faith & Industry</p>
+            <h1 class="font-serif text-6xl md:text-8xl text-editorialInk font-medium italic leading-none mb-8">Jonathan <br> Omuya Moses</h1>
+            <p class="text-[11px] uppercase tracking-[0.6em] text-editorialGold font-bold">Building Frontiers in Faith & Industry</p>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             
             <div class="lg:col-span-7 space-y-20 reveal" style="animation-delay: 0.2s">
                 <section>
-                    <h2 class="text-vaultGold text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Origin & Philosophy</h2>
-                    <div class="font-serif text-3xl md:text-4xl text-white leading-snug italic">
-                        "Born in Oye Ekiti, shaped by the grit of Kogi, and driven by a mandate to empower."
+                    <h2 class="text-editorialGold text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Origin & Mandate</h2>
+                    <div class="font-serif text-3xl md:text-4xl text-editorialInk leading-snug italic">
+                        "Born in Oye Ekiti, shaped by the grit of Kogi, and driven by a desire to empower through actionable knowledge."
                     </div>
-                    <p class="mt-10 text-slate-400 text-lg font-light leading-relaxed">
-                        A lifelong learner with a degree in Agriculture from FUT Minna, Jonathan occupies the rare space where scriptural truth meets technological innovation. He views words not just as communication, but as <span class="text-white">strategic assets</span> for human transformation.
+                    <p class="mt-10 text-editorialSage text-lg font-light leading-relaxed">
+                        A lifelong learner with a degree from FUT Minna, Jonathan occupies the rare space where scriptural truth meets technological innovation. He views words not just as communication, but as <span class="font-bold text-editorialInk">strategic assets</span> for human transformation.
                     </p>
                 </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="glass-card p-10 rounded-2xl">
-                        <h3 class="text-white font-serif italic text-xl mb-4">The Cornerstone</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed font-light">
-                            Leading <strong>Spirit Word Ministry</strong>, Jonathan spreads the Gospel with a focus on hope and actionable faith.
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-10 rounded-3xl">
+                        <h3 class="text-editorialInk font-serif italic text-xl mb-4">The Cornerstone</h3>
+                        <p class="text-sm text-editorialSage/70 leading-relaxed font-light">
+                            Leading <strong>Spirit Word Ministry</strong>, Jonathan spreads the Gospel with a focus on hope and demonstrable faith.
                         </p>
                     </div>
-                    <div class="glass-card p-10 rounded-2xl">
-                        <h3 class="text-white font-serif italic text-xl mb-4">The Innovation</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed font-light">
-                            Via <strong>Photon Ink AI</strong>, he pioneers the future of academic creativity and mental property preservation.
+                    <div class="glass-card p-10 rounded-3xl">
+                        <h3 class="text-editorialInk font-serif italic text-xl mb-4">The Innovation</h3>
+                        <p class="text-sm text-editorialSage/70 leading-relaxed font-light">
+                            Through <strong>Photon Ink AI</strong>, he pioneers the intersection of technology and scholarly creativity.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-5 space-y-12 reveal" style="animation-delay: 0.4s">
-                <div class="glass-card p-10 rounded-3xl border-l-2 border-l-vaultGold/30">
-                    <h2 class="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-12">Strategic Portfolio</h2>
+                <div class="glass-card p-12 rounded-[40px] border-t-4 border-t-editorialGold">
+                    <h2 class="text-editorialInk text-[10px] uppercase tracking-[0.4em] font-bold mb-12">Strategic Portfolio</h2>
                     
                     <div class="space-y-12">
                         <div class="flex space-x-6 group">
-                            <div class="profile-accent group-hover:scale-y-110 transition-transform"></div>
+                            <div class="profile-accent"></div>
                             <div>
-                                <h4 class="font-serif text-2xl italic text-white group-hover:text-vaultGold transition-colors">Great Impact Farm Ltd</h4>
-                                <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-2">Agro-Innovation Solutions</p>
+                                <h4 class="font-serif text-2xl italic text-editorialInk group-hover:text-editorialGold transition-colors">Great Impact Farm Ltd</h4>
+                                <p class="text-[9px] text-editorialSage uppercase tracking-widest mt-2">Agro-Innovation Solutions</p>
                             </div>
                         </div>
 
                         <div class="flex space-x-6 group">
-                            <div class="profile-accent group-hover:scale-y-110 transition-transform"></div>
+                            <div class="profile-accent"></div>
                             <div>
-                                <h4 class="font-serif text-2xl italic text-white group-hover:text-vaultGold transition-colors">Photon Ink AI</h4>
-                                <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-2">Technological Creativity</p>
+                                <h4 class="font-serif text-2xl italic text-editorialInk group-hover:text-editorialGold transition-colors">Photon Ink AI</h4>
+                                <p class="text-[9px] text-editorialSage uppercase tracking-widest mt-2">Technological Creativity</p>
                             </div>
                         </div>
 
                         <div class="flex space-x-6 group">
-                            <div class="profile-accent group-hover:scale-y-110 transition-transform"></div>
+                            <div class="profile-accent"></div>
                             <div>
-                                <h4 class="font-serif text-2xl italic text-white group-hover:text-vaultGold transition-colors">Spirit Word Ministry</h4>
-                                <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-2">Global Gospel Impact</p>
+                                <h4 class="font-serif text-2xl italic text-editorialInk group-hover:text-editorialGold transition-colors">Spirit Word Ministry</h4>
+                                <p class="text-[9px] text-editorialSage uppercase tracking-widest mt-2">Global Gospel Impact</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-16">
-                        <a href="contact.html" class="block w-full py-5 bg-vaultGold text-vaultSlate text-center text-[10px] font-black uppercase tracking-[0.4em] rounded-xl hover:bg-white transition-all shadow-xl shadow-vaultGold/10">
+                        <a href="contact.html" class="block w-full py-5 bg-editorialInk text-editorialBone text-center text-[10px] font-bold uppercase tracking-[0.4em] rounded-2xl hover:bg-editorialSage transition-all shadow-lg shadow-black/5">
                             Connect Directly
                         </a>
                     </div>
@@ -159,8 +142,8 @@
         </div>
     </main>
 
-    <footer class="py-20 border-t border-white/5 text-center">
-        <p class="text-[9px] text-slate-600 uppercase tracking-[0.5em] font-light">
+    <footer class="py-24 border-t border-black/5 text-center">
+        <p class="text-[9px] text-editorialSage uppercase tracking-[0.5em] font-medium">
             Lagos • Abuja • Kogi <br>
             © 2026 Jonathan Omuya Moses
         </p>
