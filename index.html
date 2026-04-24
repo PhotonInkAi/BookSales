@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault | Jonathan Omuya Moses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { photonNavy: '#0A192F', photonGold: '#D4AF37', photonDeep: '#060E1A' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0A192F; }
+        .book-card { background: rgba(6, 14, 26, 0.6); border: 1px solid rgba(212, 175, 55, 0.1); transition: all 0.5s ease; }
+        .book-card:hover { border-color: #D4AF37; transform: translateY(-8px); }
+        .buy-link { transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.3); }
+        .buy-link:hover { background: #D4AF37; color: #0A192F; border-color: #D4AF37; }
+        .category-pill { border: 1px solid rgba(212, 175, 55, 0.2); transition: all 0.3s ease; cursor: pointer; }
+        .category-pill:hover { border-color: #D4AF37; color: #D4AF37; }
+    </style>
+</head>
+<body class="text-white font-sans min-h-screen">
+
+    <nav class="p-8 flex justify-between items-center bg-photonNavy/50 backdrop-blur-md sticky top-0 z-50 border-b border-white/5">
+        <span class="text-[10px] uppercase tracking-[0.6em] text-photonGold font-bold italic text-center w-full">Jonathan Omuya Moses — The Digital Vault</span>
+    </nav>
+
+    <header class="py-24 px-8 max-w-5xl mx-auto text-center border-b border-white/5">
+        <h2 class="text-photonGold uppercase tracking-[0.4em] text-[10px] mb-6 font-bold">Mental Properties & Literary Assets</h2>
+        <h1 class="font-serif text-5xl md:text-6xl font-light mb-8 italic leading-tight">Empowering growth through words & knowledge.</h1>
+        <p class="text-slate-400 max-w-2xl mx-auto font-light leading-relaxed text-sm md:text-base mb-10">
+            From the fertile soils of Oye Ekiti to the academic rigors of FUT Minna, Jonathan Omuya Moses blends agricultural solutions, spiritual ministry, and frontier technology to catalyze lasting impact.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-3">
+            <span class="category-pill px-4 py-2 text-[9px] uppercase tracking-widest font-bold">Spiritual & Faith</span>
+            <span class="category-pill px-4 py-2 text-[9px] uppercase tracking-widest font-bold">Love & Marriage</span>
+            <span class="category-pill px-4 py-2 text-[9px] uppercase tracking-widest font-bold">Moral & Ethics</span>
+            <span class="category-pill px-4 py-2 text-[9px] uppercase tracking-widest font-bold">Finances & Business</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-8 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <div class="book-card p-10 rounded-sm flex flex-col">
+                <div class="mb-8 overflow-hidden rounded-sm shadow-2xl">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-photonDeep to-photonNavy flex flex-col items-center justify-center p-12 text-center border border-white/5">
+                        <span class="text-[8px] uppercase tracking-[0.5em] text-slate-500 mb-4">Finance Pillar</span>
+                        <h3 class="font-serif text-4xl text-photonGold italic">Naira <br>& Sense</h3>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-[9px] uppercase tracking-widest text-photonGold font-bold">Business Strategy</span>
+                    <span class="text-xs text-slate-500 italic">Curated Resource</span>
+                </div>
+                <h3 class="font-serif text-3xl mb-4">Naira and Sense</h3>
+                <p class="text-slate-400 text-sm font-light leading-relaxed mb-10 flex-grow">
+                    A blueprint for financial stewardships, drawing from Jonathan's entrepreneurial journey with Great Impact Farm Ltd and academic roots in Kogi State.
+                </p>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="buy-link py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold">Acquire on Selar</a>
+                    <a href="#" class="buy-link py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold">Amazon Edition</a>
+                    <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20Jonathan,%20I%20am%20interested%20in%20Naira%20and%20Sense" class="py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 hover:text-white transition-all">WhatsApp Order</a>
+                </div>
+            </div>
+
+            <div class="book-card p-10 rounded-sm flex flex-col">
+                <div class="mb-8 overflow-hidden rounded-sm shadow-2xl">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-photonDeep to-photonNavy flex flex-col items-center justify-center p-12 text-center border border-white/5">
+                        <span class="text-[8px] uppercase tracking-[0.5em] text-slate-500 mb-4">Spiritual Pillar</span>
+                        <h3 class="font-serif text-4xl text-photonGold italic">Better <br> Covenant</h3>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-[9px] uppercase tracking-widest text-photonGold font-bold">Faith & Ministry</span>
+                    <span class="text-xs text-slate-500 italic">Scriptural Insight</span>
+                </div>
+                <h3 class="font-serif text-3xl mb-4">Better Covenant</h3>
+                <p class="text-slate-400 text-sm font-light leading-relaxed mb-10 flex-grow">
+                    Spiritual explorations from the heart of Spirit Word Ministry. A profound look at the cornerstone of faith that drives Jonathan’s desire to serve.
+                </p>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="buy-link py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold">Acquire on Selar</a>
+                    <a href="#" class="buy-link py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold">Amazon Edition</a>
+                    <a href="https://wa.me/234XXXXXXXXXX?text=Hello%20Jonathan,%20I%20am%20interested%20in%20Better%20Covenant" class="py-4 text-center text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 hover:text-white transition-all">WhatsApp Order</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-20 text-center border-t border-white/5 bg-photonDeep/30">
+        <p class="text-[9px] uppercase tracking-[0.5em] text-slate-600 mb-4 italic">© 2026 Jonathan Omuya Moses — Founder, Spirit Word Ministry</p>
+        <p class="text-[8px] uppercase tracking-[0.2em] text-photonGold/40 font-light">Powered by Photon Ink AI</p>
+    </footer>
+
+</body>
+</html>
